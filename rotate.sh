@@ -9,7 +9,7 @@ fi
 # Rotate UwU 
 if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
   for x in $(kscreen-doctor -o | grep "enabled" | awk '{print $3}'); do
-    kscreen-doctor output.$x.rotation.$1
+    kscreen-doctor output.$x.rotation.$1 &> /dev/null
   done
 else
   for x in $(xrandr | grep "connected" | awk '{print $1}'); do
